@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <!--===== Boxicons CSS =====-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="./js/app.js" defer></script>
+</head>
+<body>
+    <div id="gradient">
+        <div id="navBar">
+            <div id="searchBar">
+                <input class="searchInput" placeholder="Enter city name">
+                <button class="searchIcon">
+                    <i class='bx bx-search' ></i>
+                </button>
+            </div>
+            <input type="checkbox" id="switch" class="checkbox" checked>
+            <label for="switch" class="toggle">
+                <p class="degreeC">°C</p>
+                <p class="degreeF">°F</p>
+            </label>
+        </div>
+        <div id="hero">
+            <div id="left">
+                <div id="todayTop">
+                    <img class="heroWeatherImg" src="./svg/clear-day.svg" alt="clear day SVG">
+                    <div id="todayTempContainer">
+                        <p id="todayTemp">94<sup>°F</sup></p>
+                        <p id="todayHiLo">73° / 94°</p>
+                    </div>
+                </div>
+                <p id="city">Austin, Texas</p>
+                <p id="weekday">Sunday</p>
+                <p id="date">July 2, 2023</p>
+            </div>
+            <div id="right">
+                <div class="card">
+                    <img class="cardWeatherImg" src="./svg/partly-cloudy-day-rain.svg" alt="partly cloudy rain SVG">
+                    <p class="cardHiLo">73 / 94 °F</p>
+                    <p class="cardWeekday">MON</p>
+                </div>
+                <div class="card">
+                    <img class="cardWeatherImg" src="./svg/partly-cloudy-day.svg" alt="partly cloudy SVG">
+                    <p class="cardHiLo">76 / 99 °F</p>
+                    <p class="cardWeekday">TUES</p>
+                </div>
+                <div class="card">
+                    <img class="cardWeatherImg" src="./svg/clear-day.svg" alt="clear day SVG">
+                    <p class="cardHiLo">79 / 100 °F</p>
+                    <p class="cardWeekday">WED</p>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p>Information from OpenWeather API</p>
+        </div>
+    </div>
+    
+</body>
+</html>
