@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <!--===== Boxicons CSS =====-->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="styles.css">
@@ -29,7 +30,10 @@
                 <div id="todayTop">
                     <img class="heroWeatherImg" src="./svg/clear-day.svg" alt="clear day SVG">
                     <div id="todayTempContainer">
-                        <p id="todayTemp">94<sup>°F</sup></p>
+                        <div class="superScript">
+                            <p id="todayTemp">94</p>
+                            <p id="degreeSign">°F</p>
+                        </div>
                         <p id="todayHiLo">73° / 94°</p>
                     </div>
                 </div>
@@ -39,24 +43,24 @@
             </div>
             <div id="right">
                 <div class="card">
-                    <img class="cardWeatherImg" src="./svg/partly-cloudy-day-rain.svg" alt="partly cloudy rain SVG">
-                    <p class="cardHiLo">73 / 94 °F</p>
-                    <p class="cardWeekday">MON</p>
+                    <img class="cardWeatherImg card1Img" src="./svg/partly-cloudy-day-rain.svg" alt="partly cloudy rain SVG">
+                    <p class="cardHiLo card1HiLo">73 / 94 °F</p>
+                    <p class="cardWeekday card1Day">MON</p>
                 </div>
                 <div class="card">
-                    <img class="cardWeatherImg" src="./svg/partly-cloudy-day.svg" alt="partly cloudy SVG">
-                    <p class="cardHiLo">76 / 99 °F</p>
-                    <p class="cardWeekday">TUES</p>
+                    <img class="cardWeatherImg card2Img" src="./svg/partly-cloudy-day.svg" alt="partly cloudy SVG">
+                    <p class="cardHiLo card2HiLo">76 / 99 °F</p>
+                    <p class="cardWeekday card2Day">TUES</p>
                 </div>
                 <div class="card">
-                    <img class="cardWeatherImg" src="./svg/clear-day.svg" alt="clear day SVG">
-                    <p class="cardHiLo">79 / 100 °F</p>
-                    <p class="cardWeekday">WED</p>
+                    <img class="cardWeatherImg card3Img" src="./svg/clear-day.svg" alt="clear day SVG">
+                    <p class="cardHiLo card3HiLo">79 / 100 °F</p>
+                    <p class="cardWeekday card3Day">WED</p>
                 </div>
             </div>
         </div>
         <div id="footer">
-            <p>Information from OpenWeather API</p>
+            <p>Information from Weather API</p>
         </div>
     </div>
     

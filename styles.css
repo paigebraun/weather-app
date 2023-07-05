@@ -2,14 +2,14 @@
     font-family: Helvetica, Arial, sans-serif;
 }
 
-body, html {
+body {
     height: 100%;
     margin: 0;
 }
 
 #gradient {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: linear-gradient(180deg, rgba(217, 217, 217, 0.00) 30.21%, #7BB4D4 100%);
     flex: 1 0 auto;
     display: flex;
@@ -119,6 +119,7 @@ label > p {
     justify-content: space-around;
     align-items: center;
     flex: 1 0 auto;
+    margin: 0 40px;
 }
 
 #left {
@@ -133,6 +134,16 @@ label > p {
     margin-bottom: 27px;
 }
 
+.superScript {
+    display: flex;
+}
+
+#degreeSign {
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 8px;
+}
+
 #todayTempContainer {
     display: flex;
     flex-direction: column;
@@ -140,7 +151,7 @@ label > p {
 
 #todayTemp {
     font-weight: bold;
-    font-size: 14vh;
+    font-size: 11vw;
     margin: 0;
 }
 
@@ -149,12 +160,12 @@ label > p {
 }
 
 #todayHiLo {
-    font-size: 4vh;
+    font-size: 3vw;
     margin: 0;
 }
 
 .heroWeatherImg {
-    height: 25vh;
+    height: 19vw;
 }
 
 #left > p {
@@ -163,7 +174,7 @@ label > p {
 
 #city {
     font-weight: bold;
-    font-size: 7vh;
+    font-size: 4vw;
 }
 
 #weekday,
@@ -174,7 +185,9 @@ label > p {
 
 #right {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
 }
 
 .card {
@@ -216,5 +229,70 @@ label > p {
 @media screen and (max-width: 1200px) {
     .card {
         padding: 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #navBar {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    #hero {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .toggle {
+        left: 0;
+    }
+
+    #searchBar {
+        left: 22px;
+    }
+
+    #gradient {
+        height: auto;
+        gap: 20px;
+    }
+
+    .searchInput {
+        width: 58vw;
+    }
+
+    #city {
+        font-size: 5vh;
+    }
+
+    #weekday,
+    #date {
+        font-size: 1.5em;
+    }
+
+    .heroWeatherImg {
+        height: 19vh;
+    }
+
+    .cardWeatherImg {
+        height: 14vh;
+    }
+
+    #todayTemp {
+        font-size: 11vh;
+    }
+
+    #todayHiLo {
+        font-size: 3vh;
+    }
+}
+
+@media screen and (max-height: 525px) {
+    #gradient {
+        height: auto;
+    }
+
+    #hero {
+        margin: 40px;
     }
 }
