@@ -81,15 +81,15 @@ function getWeatherData(cityName) {
                 card2HiLo.innerText = Math.round(response.forecast.forecastday[2].day.mintemp_f) + "° / " + Math.round(response.forecast.forecastday[2].day.maxtemp_f) + "°";
                 card3HiLo.innerText = Math.round(response.forecast.forecastday[3].day.mintemp_f) + "° / " + Math.round(response.forecast.forecastday[3].day.maxtemp_f) + "°";
                 let dateFromAPI_1 = String(response.forecast.forecastday[1].date);
-                dateFromAPI_1 = dateFromAPI_1.replaceAll("-", ",");
+                dateFromAPI_1 = dateFromAPI_1.replaceAll("-", "/");
                 const d1 = new Date(dateFromAPI_1);
                 card1Day.innerText = weekdayAbrev[d1.getDay()];
                 let dateFromAPI_2 = String(response.forecast.forecastday[2].date);
-                dateFromAPI_2 = dateFromAPI_2.replaceAll("-", ",");
+                dateFromAPI_2 = dateFromAPI_2.replaceAll("-", "/");
                 const d2 = new Date(dateFromAPI_2);
                 card2Day.innerText = weekdayAbrev[d2.getDay()];
                 let dateFromAPI_3 = String(response.forecast.forecastday[3].date);
-                dateFromAPI_3 = dateFromAPI_3.replaceAll("-", ",");
+                dateFromAPI_3 = dateFromAPI_3.replaceAll("-", "/");
                 const d3 = new Date(dateFromAPI_3);
                 card3Day.innerText = weekdayAbrev[d3.getDay()]; 
             }
