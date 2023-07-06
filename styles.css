@@ -79,7 +79,7 @@ body {
     height: 42px;
     border-radius: 50%;
     background-color: black;
-    left: 0px;
+    left: -1px;
     transition: all 0.3s;
 }
        

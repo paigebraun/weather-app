@@ -13,6 +13,7 @@ const card1HiLo = document.querySelector('.card1HiLo');
 const card2HiLo = document.querySelector('.card2HiLo');
 const card3HiLo = document.querySelector('.card3HiLo');
 const degreeSign = document.getElementById('degreeSign');
+
 let cityName = 'Austin';
 
 //Search input
@@ -24,10 +25,15 @@ searchInput.addEventListener('keypress', (e)=> {
     };
 })
 
+const searchBtn = document.querySelector('.searchIcon');
+searchBtn.addEventListener('click', (e)=> {
+    cityName = searchInput.value;
+    getWeatherData(cityName);
+})
+
 //Celsius Farenheit toggle
 const toggle = document.querySelector('.checkbox');
 toggle.addEventListener('click', ()=> {
-    console.log('clicked');
     getWeatherData(cityName);
 });
 
@@ -47,14 +53,12 @@ const todayDate = document.getElementById('date');
 todayDate.innerText = month + " " + day + ", " + year;
 
 function getWeatherData(cityName) {
-    console.log('cityName', cityName);
     //Fetch current data from weather api
     fetch('https://api.weatherapi.com/v1/forecast.json?key=546ee103e45347e9b7f205740230407&days=4&q=' + String(cityName), {mode: 'cors'})
         .then(function(response) {
         return response.json();
         })
         .then(function(response) {
-            console.log(response);
             if (response.location.region.length < 14 ) {
                 let state = response.location.region;
                 city.innerText = response.location.name + ", " + state;
@@ -87,10 +91,7 @@ function getWeatherData(cityName) {
                 let dateFromAPI_3 = String(response.forecast.forecastday[3].date);
                 dateFromAPI_3 = dateFromAPI_3.replaceAll("-", ",");
                 const d3 = new Date(dateFromAPI_3);
-                card3Day.innerText = weekdayAbrev[d3.getDay()];
-
-                //weather icons
-                
+                card3Day.innerText = weekdayAbrev[d3.getDay()]; 
             }
             else if (toggle.checked == false) {
                 //return celsius values
@@ -117,8 +118,42 @@ function getWeatherData(cityName) {
                 dateFromAPI_3 = dateFromAPI_3.replaceAll("-", ",");
                 const d3 = new Date(dateFromAPI_3);
                 card3Day.innerText = weekdayAbrev[d3.getDay()];
-            }   
+            }
 
+            //weather icons
+            const icons = {
+                "clear-day" : [1000],
+                "partly-cloudy-day" : [1003],
+                "cloudy" : [1006],
+                "overcast-day" : [1009],
+                "mist" : [1030],
+                "drizzle" : [1063, 1072, 1150, 1153, 1168, 1171],
+                "snow" : [1066, 1114, 1117, 1210, 1213, 1216, 1219, 1222, 1225, 1255, 1258],
+                "sleet" : [1069, 1204, 1207, 1249, 1252],
+                "thunderstorms" : [1087],
+                "fog" : [1135, 1147],
+                "rain" : [1180, 1183, 1186, 1189, 1192, 1195, 1198, 1201, 1240, 1243, 1246, 1273],
+                "hail" : [1237, 1261, 1264],
+                "thunderstorms-rain" : [1276, 1279],
+                "thunderstorms-snow" : [1282]
+            }
+
+            function getKeyByValue(object, value) {
+                return Object.keys(object).find(key => object[key].includes(value));
+            }
+              
+            const heroIconCode = response.forecast.forecastday[0].day.condition.code;
+            const card1IconCode = response.forecast.forecastday[1].day.condition.code;
+            const card2IconCode = response.forecast.forecastday[2].day.condition.code;
+            const card3IconCode = response.forecast.forecastday[3].day.condition.code;
+            heroWeatherImg.src = "./svg/" + getKeyByValue(icons, heroIconCode) + ".svg";
+            heroWeatherImg.alt = response.forecast.forecastday[0].day.condition.text;
+            card1Img.src = "./svg/" + getKeyByValue(icons, card1IconCode) + ".svg";
+            card1Img.alt = response.forecast.forecastday[1].day.condition.text;
+            card2Img.src = "./svg/" + getKeyByValue(icons, card2IconCode) + ".svg";
+            card2Img.alt = response.forecast.forecastday[2].day.condition.text;
+            card3Img.src = "./svg/" + getKeyByValue(icons, card3IconCode) + ".svg";
+            card3Img.alt = response.forecast.forecastday[3].day.condition.text;
         });
 }
 
